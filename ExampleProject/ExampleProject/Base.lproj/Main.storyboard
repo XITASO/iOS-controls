@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Example View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ExampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-Mm-Dl6" customClass="XIWheelControl">
+                                <rect key="frame" x="16" y="20" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0Yt-jA-962"/>
+                                    <constraint firstAttribute="width" constant="200" id="gqj-ib-GlG"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evN-Sv-tEO" customClass="XIWaveformView">
+                                <rect key="frame" x="16" y="339" width="306" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Vzg-mh-htk"/>
+                                    <constraint firstAttribute="width" constant="306" id="Zy4-r0-oh4"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpO-pR-3f9" customClass="XIDoubleSlider">
+                                <rect key="frame" x="16" y="270" width="306" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SL9-ea-XO9"/>
+                                    <constraint firstAttribute="width" constant="306" id="tpN-6R-d5v"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MpO-pR-3f9" firstAttribute="top" secondItem="Iln-Mm-Dl6" secondAttribute="bottom" constant="50" id="6F4-nQ-Ao7"/>
+                            <constraint firstItem="Iln-Mm-Dl6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="FCh-kU-VI9"/>
+                            <constraint firstItem="evN-Sv-tEO" firstAttribute="top" secondItem="MpO-pR-3f9" secondAttribute="bottom" constant="29" id="aav-RQ-Mq1"/>
+                            <constraint firstItem="MpO-pR-3f9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="oth-8a-ay8"/>
+                            <constraint firstItem="Iln-Mm-Dl6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="sVA-Sw-abN"/>
+                            <constraint firstItem="evN-Sv-tEO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="v4T-xr-Q2i"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doubleSlider" destination="MpO-pR-3f9" id="OAR-4d-g9H"/>
+                        <outlet property="waveformView" destination="evN-Sv-tEO" id="HQZ-5R-ZEE"/>
+                        <outlet property="wheelControl" destination="Iln-Mm-Dl6" id="hEU-Xe-kFj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="398"/>
+        </scene>
+    </scenes>
+</document>
