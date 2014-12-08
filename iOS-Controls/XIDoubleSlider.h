@@ -9,27 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, LastTouchedHandle) {
-    LastTouchedHandleNoHandle = 0,
-    LastTouchedHandleMinHandle,
-    LastTouchedHandleMaxHandle
-};
-
 
 @class XISliderHandle;
-
-
-@protocol XIDoubleSliderProtocol <NSObject>
-
-/**
- Method 
- @author Christian Höfle
- @date 2012-11-20
- @param lastTouchedHandle
- */
-- (void)sliderDidEndChangingWithHandle:(LastTouchedHandle)lastTouchedHandle;
-
-@end
 
 
 /**
@@ -41,26 +22,22 @@ typedef NS_ENUM(NSInteger, LastTouchedHandle) {
  */
 @interface XIDoubleSlider : UIControl
 
-@property (nonatomic, strong) XISliderHandle *minHandle;
-@property (nonatomic, strong) XISliderHandle *maxHandle;
-@property (nonatomic, assign) float minValue;
-@property (nonatomic, assign) float maxValue;
-@property (nonatomic, assign) BOOL handlesEnabled;
-@property (nonatomic, assign) float minSelectedValue;
-@property (nonatomic, assign) float maxSelectedValue;
-@property (nonatomic, assign, readonly) BOOL minHandleTouched;
-@property (nonatomic, assign, readonly) BOOL maxHandleTouched;
-@property (nonatomic, readonly) LastTouchedHandle lastTouchedHandle;
+@property (nonatomic, strong) XISliderHandle *minHandle;                    /**< The min handle of the double slider */
+@property (nonatomic, strong) XISliderHandle *maxHandle;                    /**< The max handle of the double slider */
+@property (nonatomic, assign) float minValue;                               /**< The min value that can be selected */
+@property (nonatomic, assign) float maxValue;                               /**< The max value that can be selected */
+@property (nonatomic, assign) float minSelectedValue;                       /**< The value of the min handle */
+@property (nonatomic, assign) float maxSelectedValue;                       /**< The value of the max handle */
+@property (nonatomic, assign, readonly) BOOL minHandleTouched;              /**< boolean to know if the min handle is currently touched, private */
+@property (nonatomic, assign, readonly) BOOL maxHandleTouched;              /**< boolean to know if the max handle is currently touched, private */        
 
-@property (nonatomic, strong, readonly) UIView *sliderBackgroundLine;
-@property (nonatomic, strong, readonly) UIView *sliderForegroundLine;
-@property (nonatomic, assign, readonly) CGRect sliderBarFrame;
+@property (nonatomic, strong, readonly) UIView *sliderBackgroundLine;       /**< The background line that is visible over the whole min / max area */
+@property (nonatomic, strong, readonly) UIView *sliderForegroundLine;       /**< The foreground line, only showing the currently selected area */
+@property (nonatomic, assign, readonly) CGRect sliderBarFrame;              /**< The frame that defines the area the handles can be dragged in */
 
-@property (nonatomic, strong) UIColor *foregroundColor;
-@property (nonatomic, strong) UIColor *backgroundColor;
-@property (nonatomic, strong) UIColor *handleColor;
-
-@property (weak) id <XIDoubleSliderProtocol> delegate;
+@property (nonatomic, strong) UIColor *foregroundColor;                     /**< The color of the foreground line */
+@property (nonatomic, strong) UIColor *backgroundColor;                     /**< The color of the background line */
+@property (nonatomic, strong) UIColor *handleColor;                         /**< The color of the min / max handles */
 
 
 /**

@@ -162,7 +162,6 @@ static const float handleTouchExtensionValue = 20.0;
     // Init some values
     _minHandleTouched = NO;
     _maxHandleTouched = NO;
-    _lastTouchedHandle = LastTouchedHandleNoHandle;
     
     [self updateValues];
 
@@ -184,7 +183,6 @@ static const float handleTouchExtensionValue = 20.0;
                                            _minHandle.frame.size.height + handleTouchExtensionValue*2),
                                 touchPoint)) {
             _minHandleTouched = YES;
-            _lastTouchedHandle = LastTouchedHandleMinHandle;
             
         } else if (CGRectContainsPoint(CGRectMake(_maxHandle.frame.origin.x,
                                                   _maxHandle.frame.origin.y - handleTouchExtensionValue,
@@ -192,7 +190,6 @@ static const float handleTouchExtensionValue = 20.0;
                                                   _maxHandle.frame.size.height+handleTouchExtensionValue*2),
                                        touchPoint)) {
             _maxHandleTouched = YES;
-            _lastTouchedHandle = LastTouchedHandleMaxHandle;
         }
     
         return YES;
@@ -251,9 +248,6 @@ static const float handleTouchExtensionValue = 20.0;
     
     // send editing ended
     [self sendActionsForControlEvents:UIControlEventTouchUpInside];
-    
-    // send the message to the delegate
-    [_delegate sliderDidEndChangingWithHandle:_lastTouchedHandle];
 }
 
 
@@ -264,15 +258,8 @@ static const float handleTouchExtensionValue = 20.0;
 {
     [super setEnabled:enabled];
     
-    [self setHandlesEnabled:enabled];
-}
-
-- (void)setHandlesEnabled:(BOOL)handlesEnabled
-{
-    _handlesEnabled = handlesEnabled;
-    
-    _minHandle.hidden = !_handlesEnabled;
-    _maxHandle.hidden = !_handlesEnabled;
+    _minHandle.userInteractionEnabled = enabled;
+    _maxHandle.userInteractionEnabled = enabled;
 }
 
 - (void)setMinValue:(float)minValue

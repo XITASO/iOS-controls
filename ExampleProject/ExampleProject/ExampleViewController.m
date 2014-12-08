@@ -21,34 +21,44 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    // setup wheel control
     _wheelControl.minValue = 0;
     _wheelControl.maxValue = 100;
     _wheelControl.tintColor = [UIColor blueColor];
+    [_wheelControl addTarget:self action:@selector(wheelDidChangeValue:) forControlEvents:UIControlEventValueChanged];
     
+    // setup waveform
     _waveformView.tintColor = [UIColor blueColor];
     [_waveformView buildFromAsset:[AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ExampleAudio" ofType:@"m4a"]]] completion:^(BOOL successful) {
         
     }];
     
+    // setup double slider
     _doubleSlider.minSelectedValue = 10;
     _doubleSlider.maxSelectedValue = 90;
-    _doubleSlider.delegate = self;
-    [_doubleSlider addTarget:self action:@selector(doubleSliderValueChanged) forControlEvents:UIControlEventValueChanged];
+    [_doubleSlider addTarget:self action:@selector(doubleSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [_doubleSlider addTarget:self action:@selector(doubleSliderDidEndChangingValue:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)didChangeValue:(XIWheelControl *)wheel
+#pragma mark -
+#pragma mark Wheel value changing
+
+- (void)wheelDidChangeValue:(XIWheelControl *)wheel
 {
-    
+    NSLog(@"Wheel did change value: %f", wheel.value);
 }
 
-- (void)doubleSliderValueChanged
+#pragma mark -
+#pragma mark Double slider value changing
+
+- (void)doubleSliderValueChanged:(XIDoubleSlider *)doubleSlider
 {
-    
+    NSLog(@"Double slider values: min: %f, max: %f", doubleSlider.minSelectedValue, doubleSlider.maxSelectedValue);
 }
 
-- (void)sliderDidEndChangingWithHandle:(LastTouchedHandle)lastTouchedHandle
+- (void)doubleSliderDidEndChangingValue:(XIDoubleSlider *)doubleSlider
 {
-    
+    NSLog(@"Double slider values: min: %f, max: %f", doubleSlider.minSelectedValue, doubleSlider.maxSelectedValue);
 }
 
 @end

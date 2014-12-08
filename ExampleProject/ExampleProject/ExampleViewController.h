@@ -11,7 +11,7 @@
 #import "XIWaveformView.h"
 #import "XIDoubleSlider.h"
 
-@interface ExampleViewController : UIViewController <XIDoubleSliderProtocol>
+@interface ExampleViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet XIWheelControl *wheelControl;
 @property (nonatomic, strong) IBOutlet XIWaveformView *waveformView;
