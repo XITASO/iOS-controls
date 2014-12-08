@@ -15,11 +15,11 @@ Usage
 
 Currently there are 3 custom controls:
 
-### XIWheelControl ###
+##### XIWheelControl
 
-### XIDoubleSlider ###
+##### XIDoubleSlider
 
-### XIWaveformView ###
+##### XIWaveformView
 
 Please look at the ExampleViewController in the ExampleProject to know how to use the controls. Everything is commented well and the methods should be easy to unterstand.
 
