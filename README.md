@@ -13,6 +13,14 @@ With time passing by we did several custom controls for our iOS projects that ar
 Usage
 =====
 
+Currently there are 3 custom controls:
+
+### XIWheelControl ###
+
+### XIDoubleSlider ###
+
+### XIWaveformView ###
+
 Please look at the ExampleViewController in the ExampleProject to know how to use the controls. Everything is commented well and the methods should be easy to unterstand.
 
 
