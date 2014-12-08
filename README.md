@@ -16,10 +16,14 @@ Usage
 Currently there are 3 custom controls:
 
 ##### XIWheelControl
+This control was initialy made for cutting audio files. The value changes exponentially with the rotation speed, so when moving the wheel very slowly the value changes very accurately, but when moving the wheel very fast it changes very fast.
 
 ##### XIDoubleSlider
+This control was also built for usage in an project for editing audio files. You can easily select an area of values.
 
 ##### XIWaveformView
+This control was, as you may guess, also built for an audio project. This control builds an audio waveform for a given audio file.
+
 
 Please look at the ExampleViewController in the ExampleProject to know how to use the controls. Everything is commented well and the methods should be easy to unterstand.
 
